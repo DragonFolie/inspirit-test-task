@@ -45,5 +45,23 @@ public class TourController {
 
     }
 
+    @PutMapping(path = "/")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Tour> update(@RequestBody Tour tour) {
+
+        tourService.update(tour);
+        return ResponseEntity.ok().build();
+
+    }
+
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Tour> deleteById(@PathVariable("id") Long id) {
+
+        tourService.deleteById(id);
+        return ResponseEntity.ok().build();
+
+    }
+
 
 }

@@ -67,4 +67,17 @@ public class TourService {
         tourRepository.save(tour);
 
     }
+
+    public void update( Tour tour) {
+
+        tourRepository.save(tour);
+
+    }
+
+
+    public void deleteById(Long id) {
+
+        tourRepository.deleteById(id);
+
+    }
 }

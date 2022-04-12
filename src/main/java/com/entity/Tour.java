@@ -26,7 +26,7 @@ public class Tour {
     private String tourType;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
 

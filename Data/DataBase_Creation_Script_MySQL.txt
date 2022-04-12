@@ -69,16 +69,9 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
-
 INSERT INTO tour_operator ( company_name) VALUES ('name1');
 INSERT INTO tour_operator (company_name) VALUES ('name2');
 INSERT INTO user (user_name, last_name, birth_date, role, tour_operator_id) VALUES ('user_name1','last_name1','2022:02:24','admin1',1);
 INSERT INTO user (user_name, last_name, birth_date, role, tour_operator_id) VALUES ('user_name2','last_name2','2022:02:24','admin2',2);
 INSERT INTO tour (name, tour_type, user_id) VALUES ('name1','avia1',1);
 INSERT INTO tour (name, tour_type, user_id) VALUES ('name2','avia2',2);
-
-
-SELECT * FROM tour;
-SELECT * FROM tour_operator;
-SELECT * FROM user;

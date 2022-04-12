@@ -75,7 +75,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> deleteById(@PathVariable("id") Long id) {
 
-        userService.delete(id);
+        userService.deleteById(id);
         return ResponseEntity.ok().build();
 
     }
