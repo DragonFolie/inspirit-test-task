@@ -30,7 +30,7 @@ public class TourController {
 
     @GetMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Tour> findById(@PathVariable("id")Long id) {
+    public Optional<Tour> findById(@PathVariable("id") Long id) {
 
         return tourService.findById(id);
 
@@ -40,9 +40,10 @@ public class TourController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Tour> create(@RequestBody Tour tour, @PathVariable("user_name") String user_name, @PathVariable("tour_operator") String tour_operator) {
 
-        tourService.create(tour, user_name,tour_operator);
+        tourService.create(tour, user_name, tour_operator);
         return ResponseEntity.ok().build();
 
     }
+
 
 }

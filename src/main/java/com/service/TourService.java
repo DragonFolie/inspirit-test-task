@@ -41,30 +41,26 @@ public class TourService {
     }
 
 
-
-
-
-
-    public List<Tour> findAll(){
+    public List<Tour> findAll() {
         return tourRepository.findAll();
 
     }
 
 
-    public Optional<Tour> findById(Long id){
+    public Optional<Tour> findById(Long id) {
 
         return tourRepository.findById(id);
 
     }
 
 
-    public void create(Tour tour,String user_name,String tour_operator){
+    public void create(Tour tour, String user_name, String tour_operator) {
 
 
         List<User> listUser = userRepository.findByUserName(user_name);
         List<TourOperator> list = tourOperatorRepository.findByCompanyName(tour_operator);
 
-        User user = listUser.get(0 );
+        User user = listUser.get(0);
         user.setTourOperator(list.get(0));
         tour.setUser(user);
 

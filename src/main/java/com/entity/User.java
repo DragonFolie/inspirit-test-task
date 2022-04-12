@@ -18,34 +18,28 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
     @Column(name = "user_name")
-    private String   userName;
+    private String userName;
 
 
     @Column(name = "last_name")
-    private String   lastName;
+    private String lastName;
 
-//    @Pattern( regexp = "^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$")
+    //    @Pattern( regexp = "^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$")
     @Column(name = "birth_date")
-    private String  birthDate;
+    private String birthDate;
 
     @Column(name = "role")
-    private String   role;
+    private String role;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "tour_operator_id")
     private TourOperator tourOperator;
-
-
-
-
-
-
 
 
     public User() {

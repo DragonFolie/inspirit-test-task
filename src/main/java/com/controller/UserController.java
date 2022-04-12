@@ -36,7 +36,6 @@ public class UserController {
         return list;
 
 
-
     }
 
 
@@ -54,7 +53,7 @@ public class UserController {
 
     @PostMapping(path = "/{tour_operator_name}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<User> update(@RequestBody User user, @PathVariable("tour_operator_name") String tour_operator_name) {
+    public ResponseEntity<User> create(@RequestBody User user, @PathVariable("tour_operator_name") String tour_operator_name) {
 
         userService.create(user, tour_operator_name);
         return ResponseEntity.ok().build();

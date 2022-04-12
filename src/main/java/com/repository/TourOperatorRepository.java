@@ -8,11 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TourOperatorRepository extends JpaRepository<TourOperator,Long> {
+public interface TourOperatorRepository extends JpaRepository<TourOperator, Long> {
 
 
     public List<TourOperator> findByCompanyName(String company_name);
-
 
 
 }

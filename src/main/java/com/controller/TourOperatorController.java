@@ -21,7 +21,7 @@ public class TourOperatorController {
 
     @GetMapping(path = "/")
     @ResponseStatus(HttpStatus.OK)
-    public List<TourOperator> findAll(){
+    public List<TourOperator> findAll() {
 
         return tourOperatorService.findAll();
 
@@ -30,7 +30,7 @@ public class TourOperatorController {
 
     @GetMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<TourOperator> findById(@PathVariable("id") Long id){
+    public Optional<TourOperator> findById(@PathVariable("id") Long id) {
 
         return tourOperatorService.findById(id);
 
@@ -38,30 +38,30 @@ public class TourOperatorController {
 
     @PostMapping(path = "/")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<TourOperator> create(@RequestBody TourOperator tourOperator ){
+    public ResponseEntity<TourOperator> create(@RequestBody TourOperator tourOperator) {
 
         tourOperatorService.create(tourOperator);
-        return ResponseEntity.ok().build() ;
+        return ResponseEntity.ok().build();
 
     }
 
 
     @PutMapping(path = "/")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<TourOperator> update(@RequestBody TourOperator tourOperator ){
+    public ResponseEntity<TourOperator> update(@RequestBody TourOperator tourOperator) {
 
         tourOperatorService.update(tourOperator);
-        return ResponseEntity.ok().build() ;
+        return ResponseEntity.ok().build();
 
     }
 
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<TourOperator> deleteById(@PathVariable("id")Long id ){
+    public ResponseEntity<TourOperator> deleteById(@PathVariable("id") Long id) {
 
         tourOperatorService.delete(id);
-        return ResponseEntity.ok().build() ;
+        return ResponseEntity.ok().build();
 
     }
 
