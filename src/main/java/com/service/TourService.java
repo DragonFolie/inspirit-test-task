@@ -60,13 +60,12 @@ public class TourService {
 
     public void create(Tour tour,String user_name,String tour_operator){
 
-        User user = new User();
-        userRepository.findByUserName(user_name);
 
-        TourOperator tourOperator = new TourOperator();
-        tourOperatorRepository.findByCompanyName(tour_operator);
+        List<User> listUser = userRepository.findByUserName(user_name);
+        List<TourOperator> list = tourOperatorRepository.findByCompanyName(tour_operator);
 
-        user.setTourOperator(tourOperator);
+        User user = listUser.get(0 );
+        user.setTourOperator(list.get(0));
         tour.setUser(user);
 
         tourRepository.save(tour);
