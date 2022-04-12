@@ -1,11 +1,75 @@
 package com.service;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import com.entity.Tour;
+import com.entity.TourOperator;
+import com.entity.User;
+import com.repository.TourOperatorRepository;
+import com.repository.TourRepository;
+import com.repository.UserRepository;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Access;
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
+
 @Service
-@Data
-@RequiredArgsConstructor
+@Getter
+@Setter
+@ToString
 public class TourService {
+
+    private TourRepository tourRepository;
+    private UserRepository userRepository;
+    private TourOperatorRepository tourOperatorRepository;
+
+    @Autowired
+    public void setTourRepository(TourRepository tourRepository) {
+        this.tourRepository = tourRepository;
+    }
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Autowired
+    public void setTourOperatorRepository(TourOperatorRepository tourOperatorRepository) {
+        this.tourOperatorRepository = tourOperatorRepository;
+    }
+
+
+
+
+
+
+    public List<Tour> findAll(){
+        return tourRepository.findAll();
+
+    }
+
+
+    public Optional<Tour> findById(Long id){
+
+        return tourRepository.findById(id);
+
+    }
+
+
+    public void create(Tour tour,String user_name,String tour_operator){
+
+        User user = new User();
+        userRepository.findByUserName(user_name);
+
+        TourOperator tourOperator = new TourOperator();
+        tourOperatorRepository.findByCompanyName(tour_operator);
+
+        user.setTourOperator(tourOperator);
+        tour.setUser(user);
+
+        tourRepository.save(tour);
+
+    }
 }

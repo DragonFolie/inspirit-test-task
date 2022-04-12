@@ -31,7 +31,7 @@ public class User {
 
 //    @Pattern( regexp = "^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$")
     @Column(name = "birth_date")
-    private String   birthDate;
+    private String  birthDate;
 
     @Column(name = "role")
     private String   role;
@@ -49,6 +49,13 @@ public class User {
 
 
     public User() {
+    }
+
+    public User(String userName, String lastName, String birthDate, String role) {
+        this.userName = userName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.role = role;
     }
 
     public User(String userName, String lastName, String birthDate, String role, TourOperator tourOperator) {

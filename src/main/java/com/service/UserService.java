@@ -57,13 +57,13 @@ public class UserService {
 
     public User create(User user, String tour_operator_name) {
 
-        TourOperator tourOperator = new TourOperator();
-        tourOperatorRepository.findByCompanyName(tour_operator_name);
-
-        System.out.println(tourOperator);
+        List<TourOperator> list = tourOperatorRepository.findByCompanyName(tour_operator_name);
 
 
-        user.setTourOperator(tourOperator);
+        System.out.println(list + " ------------");
+
+
+        user.setTourOperator(list.get(0));
         return userRepository.save(user);
 
     }
@@ -72,6 +72,13 @@ public class UserService {
     public void update(User user) {
 
         userRepository.save(user);
+
+    }
+
+
+    public void delete(Long id) {
+
+        userRepository.deleteById(id);
 
     }
 

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 
 @Service
 @Data
@@ -19,9 +21,35 @@ public class TourOperatorService {
     private TourOperatorRepository tourOperatorRepository;
 
 
-    public List<TourOperator> findAll(){
+    public List<TourOperator> findAll() {
 
         return tourOperatorRepository.findAll();
+
+    }
+
+
+    public Optional<TourOperator> findById(Long id) {
+
+        return tourOperatorRepository.findById(id);
+
+    }
+
+    public void create(TourOperator tourOperator) {
+
+        tourOperatorRepository.save(tourOperator);
+
+    }
+
+    public void update(TourOperator tourOperator) {
+
+        tourOperatorRepository.save(tourOperator);
+
+    }
+
+
+    public void delete(Long id) {
+
+        tourOperatorRepository.deleteById(id);
 
     }
 }

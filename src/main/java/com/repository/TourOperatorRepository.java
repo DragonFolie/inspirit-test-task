@@ -11,6 +11,8 @@ import java.util.List;
 public interface TourOperatorRepository extends JpaRepository<TourOperator,Long> {
 
 
-    public List<TourOperator> findByCompanyName(String name);
+    public List<TourOperator> findByCompanyName(String company_name);
+
+
 
 }
