@@ -1,4 +1,4 @@
-
+All SQL scripts in Data folder
 
 
 What you need to start the project:
